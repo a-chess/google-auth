@@ -13,6 +13,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'unicorn'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -31,9 +32,9 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-group :production do
-  gem 'unicorn'
-end
+# group :production do
+#   # gem 'unicorn'
+# end
 
 group :test do
   gem 'capybara', '>= 2.15'
