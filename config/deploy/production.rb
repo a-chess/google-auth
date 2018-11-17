@@ -1,14 +1,8 @@
 set :rails_env, "staging"
 set :unicorn_rack_env, "staging"
 
-role :app, %w{user@example.com}
-role :web, %w{user@example.com}
-role :db,  %w{user@example.com}
+role :app, %w{hyuga@160.16.131.221}
+role :web, %w{hyuga@160.16.131.221}
+role :db,  %w{hyuga@160.16.131.221}
 
-server 'example.com', user: 'user', roles: %w{web app}
-
-set :ssh_options, {
-  keys: %w(/home/hyuga/.ssh/id_rsa),
-  forward_agent: false,
-  auth_methods: %w(publickey)
-}
+server '160.16.131.221', user: 'hyuga', roles: %w{web app}, ssh_options: { keys: %w(~/.ssh/id_rsa_sakura) }
