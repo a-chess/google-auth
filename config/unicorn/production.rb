@@ -1,12 +1,12 @@
 @app_path = '/home/hyuga/google-auth'
-# working_directory @app_path + "/current"
+working_directory @app_path + "/current"
 
 worker_processes Integer(ENV["WEB_CONCURRENCY"] || 3)
 timeout 15
 preload_app true
 
-listen "#{@app_path}/tmp/unicorn.sock"
-pid    "#{@app_path}/tmp/pids/unicorn.pid"
+listen "tmp/unicorn.sock"
+pid    "tmp/pids/unicorn.pid"
 
 stderr_path File.expand_path('log/unicorn.log', ENV['RAILS_ROOT'])
 stdout_path File.expand_path('log/unicorn.log', ENV['RAILS_ROOT'])
