@@ -8,8 +8,9 @@
 /.bundle
 
 # capistranoで作成されるディレクトリを除外
+/releases
+/repo
 /shared
-releases/
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
