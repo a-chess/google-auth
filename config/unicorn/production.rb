@@ -1,5 +1,5 @@
 @app_path = '/home/hyuga/google-auth'
-working_directory @app_path + "/current"
+# working_directory @app_path + "/current"
 
 worker_processes Integer(ENV["WEB_CONCURRENCY"] || 3)
 timeout 15

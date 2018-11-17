@@ -39,7 +39,7 @@ namespace :unicorn do
 
   def unicorn_pid
     begin
-      File.read("/home/hyuga/google-auth/tmp/unicorn.pid").to_i
+      File.read("/home/hyuga/google-auth/tmp/pids/unicorn.pid").to_i
     rescue Errno::ENOENT
       raise "Unicorn does not seem to be running"
     end
