@@ -1,9 +1,15 @@
+@app_path = '/home/hyuga/google-auth'
+working_directory @app_path + "/current"
+
 worker_processes Integer(ENV["WEB_CONCURRENCY"] || 3)
 timeout 15
 preload_app true
 
-listen '/home/hyuga/google-auth/tmp/unicorn.sock'
-pid    '/home/hyuga/google-auth/tmp/unicorn.pid'
+listen "#{@app_path}/tmp/unicorn.sock"
+pid    "#{@app_path}/tmp/pids/unicorn.pid"
+
+stderr_path File.expand_path('log/unicorn.log', ENV['RAILS_ROOT'])
+stdout_path File.expand_path('log/unicorn.log', ENV['RAILS_ROOT'])
 
 before_fork do |server, worker|
   Signal.trap 'TERM' do
@@ -24,5 +30,3 @@ after_fork do |server, worker|
     ActiveRecord::Base.establish_connection
 end
 
-stderr_path File.expand_path('log/unicorn.log', ENV['RAILS_ROOT'])
-stdout_path File.expand_path('log/unicorn.log', ENV['RAILS_ROOT'])
